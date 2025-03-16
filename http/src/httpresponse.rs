@@ -157,6 +157,7 @@ mod tests {
         };
         let http_string: String = response_expected.into();
         let response_actual = "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\nContent-length: 40\r\n\r\nItem was not shipped on 21st of May 2022";
+        println!("{}", http_string);
         assert_eq!(http_string, response_actual);
     }
 }

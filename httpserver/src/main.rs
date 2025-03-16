@@ -1,3 +1,14 @@
+mod handler;
+mod router;
+mod server;
+
+use server::Server;
+
+
+
 fn main() {
-    println!("Hello, world!");
+    //start a new Server
+    let server = Server::new("localhost:3000");
+    //run the Server
+    server.run();
 }

@@ -7,7 +7,7 @@ pub enum Resource {
 }
 
 #[derive(Debug)]
-struct HttpRequest {
+pub struct HttpRequest {
     pub method: Method,
     pub version: Version,
     pub resource: Resource,
