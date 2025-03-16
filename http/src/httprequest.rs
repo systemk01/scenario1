@@ -41,15 +41,15 @@ impl From<String> for HttpRequest {
             } else {
                 parsed_msg_body = line;
             }
-            }
-            //Parse the incomming HTTP request into HTTPRequest struct
-            HttpRequest {
-                method: parsed_method,
-                version: parsed_version,
-                resource: parsed_resource,
-                headers: parsed_headers,
-                msg_body: parsed_msg_body.to_string(),
-            }
+        }
+        //Parse the incomming HTTP request into HTTPRequest struct
+        HttpRequest {
+            method: parsed_method,
+            version: parsed_version,
+            resource: parsed_resource,
+            headers: parsed_headers,
+            msg_body: parsed_msg_body.to_string(),
+        }
     }
 }
 
@@ -64,7 +64,11 @@ fn process_request_line(s: &str) -> (Method, Resource, Version) {
     let version = words.next().unwrap();
     //Return the 3 parts of the request line
     //Hier kommt der Vorteil der into()-Methode zum tragen
-    (method.into(), Resource::Path(resource.to_string()), version.into())
+    (
+        method.into(),
+        Resource::Path(resource.to_string()),
+        version.into(),
+    )
 }
 
 fn process_header_line(s: &str) -> (String, String) {
@@ -82,7 +86,6 @@ fn process_header_line(s: &str) -> (String, String) {
     }
     //Return the 2 parts of the header line
     (key, value)
-    
 }
 
 //vordefinierte HTTP Methoden
@@ -120,7 +123,6 @@ impl From<&str> for Version {
         }
     }
 }
-
 
 #[cfg(test)]
 mod tests {

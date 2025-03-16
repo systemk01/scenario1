@@ -1,9 +1,7 @@
-use std::net::TcpListener;
 use std::io::{Read, Write};
-
+use std::net::TcpListener;
 
 fn main() {
-    
     let connection_listener = TcpListener::bind("127.0.0.1:3080").unwrap();
     println!("Server listening on port 3080");
 
