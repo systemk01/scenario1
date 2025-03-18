@@ -54,8 +54,9 @@ impl Handler for StaticPageHandler {
 //To serve a 404 page
 pub struct PageNotFoundHandler;
 
+//_req aus req gemacht, wegen der ständigden unused code warning
 impl Handler for PageNotFoundHandler {
-    fn handle(req: &HttpRequest) -> HttpResponse {
+    fn handle(_req: &HttpRequest) -> HttpResponse {
         HttpResponse::new("404", None, Self::load_file("404.html"))
     }
 }
